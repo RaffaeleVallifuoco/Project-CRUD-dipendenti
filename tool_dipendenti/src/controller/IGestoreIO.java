@@ -17,13 +17,13 @@ public interface IGestoreIO {
 
     public void formRegistrazione(Persona dip);
 
-    public Persona dupkica(Persona dipOriginale);
+    public Persona duplica(Persona dipOriginale);
 
     public void formModifica(Persona dipMModificato);
 
     public void schedaPersona(Persona dip);
 
-    public void visualizzaPersna(Map<Integer, Persona> db);
+    public void visualizzaPersne(Map<Integer, Persona> db);
 
     public void ceckOperazione(Boolean risultatoDML);
 

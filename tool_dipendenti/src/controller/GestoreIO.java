@@ -68,19 +68,38 @@ public class GestoreIO implements IGestoreIO {
         dip.setDataNascita(dataNascita);
         String cf = leggiStringa("\nCodice Fiscale:\n");
         dip.setCf(cf);
-        String citta =leggiStringa("\nCitta di residenza:\n");
+        String citta = leggiStringa("\nCitta di residenza:\n");
         dip.setCitta(citta);
-        Double stipendio 0 leggiDecimale("\nStipendio:\n");
+        Double stipendio = leggiDecimale("\nStipendio:\n");
         if (dip instanceof Dipendente) {
             ((Dipendente) dip).setStipendio(stipendio);
-}
+        }
 
     }
 
     @Override
-    public Persona dupkica(Persona dipOriginale) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'dupkica'");
+    public Persona duplica(Persona dipOriginale) {
+        Persona dipCopia = new Dipendente();
+        Integer id = dipOriginale.getId();
+        dipCopia.setId(id);
+        String nome = dipOriginale.getNome();
+        dipCopia.setNome(nome);
+        String cognome = dipOriginale.getCognome();
+        dipCopia.setCognome(cognome);
+        Date dataDate = dipOriginale.getDataNascita();
+        dipCopia.setDataNascita(dataDate);
+        String cf = dipOriginale.getCf();
+        dipCopia.setCf(cf);
+        Double stipendio = null;
+        if (dipOriginale instanceof Dipendente) {
+            stipendio = ((Dipendente) dipOriginale).getStipendio();
+        }
+        if (dipCopia instanceof Dipendente) {
+            ((Dipendente) dipCopia).setStipendio(stipendio);
+        }
+
+        return dipCopia;
+
     }
 
     @Override
@@ -91,14 +110,21 @@ public class GestoreIO implements IGestoreIO {
 
     @Override
     public void schedaPersona(Persona dip) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'schedaPersona'");
+        Double stipendio = null;
+        if (dip instanceof Dipendente) {
+            stipendio = ((Dipendente) dip).getStipendio();
+        }
+
+        System.out.println("\n- Anagrafica dipendente -\n");
+        System.out.println(String.format(
+                "- Id: %s\n- Nome: %s\n- Cognome: %s\n- Data di nascita: %s\n- Codice fiscale: %s\n- Residenza: %s\n- Stipendio: %f\n",
+                dip.getNome(), dip.getCognome(), dip.getDataNascita(), dip.getCf(), dip.getCitta(), stipendio));
+
     }
 
     @Override
-    public void visualizzaPersna(Map<Integer, Persona> db) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visualizzaPersna'");
+    public void visualizzaPersne(Map<Integer, Persona> db) {
+
     }
 
     @Override
