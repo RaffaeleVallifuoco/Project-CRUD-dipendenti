@@ -4,36 +4,35 @@ import java.sql.Date;
 
 public class Dipendente extends Persona {
 
-    private Double salary;
+    private Double stipendio;
 
-    / CONSTRUCTORS
+    // CONSTRUCTORS
 
     public Dipendente() {
         super();
     }
 
-    public Dipendente(int id, String name, String surname, String fc, String city, Date bDay, Double salary) {
-        super(id, name, surname, fc, city, bDay);
-        this.salary = salary;
+    public Dipendente(int id, String nome, String cognome, String cf, String citta, Date dataNascita,
+            Double stipendio) {
+        super(id, nome, cognome, cf, citta, dataNascita);
+        this.stipendio = stipendio;
     }
 
-    // GETERS & SETTERS
+    // GETTERS & SETTERS
 
-    public Double getSalary() {
-        return salary;
+    public Double getStipendio() {
+        return stipendio;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setStipendio(Double stipendio) {
+        this.stipendio = stipendio;
     }
 
-    // TO SRING
+    // TO STRING
 
     @Override
     public String toString() {
-        return "Dipendente [salary=" + salary + "]";
+        return "Dipendente [stipendio=" + stipendio + "]";
     }
-
-    
 
 }

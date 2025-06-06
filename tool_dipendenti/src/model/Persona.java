@@ -1,29 +1,28 @@
 package model;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public abstract class Persona {
 
     private int id;
-    private String name;
-    private String surname;
-    private String fc;
-    private String city;
-    private Date bDay;
+    private String nome;
+    private String cognome;
+    private String cf;
+    private String citta;
+    private Date dataNascita;
 
     // CONSTRUCTORS
 
     public Persona() {
     }
 
-    public Persona(int id, String name, String surname, String fc, String city, Date bDay) {
+    public Persona(int id, String nome, String cognome, String cf, String citta, Date dataNascita) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.fc = fc;
-        this.city = city;
-        this.bDay = bDay;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.cf = cf;
+        this.citta = citta;
+        this.dataNascita = dataNascita;
     }
 
     // GETTERS & SETTERS
@@ -36,52 +35,51 @@ public abstract class Persona {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;;
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getCognome() {
+        return cognome;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getCf() {
+        return cf;
     }
 
-    public String getFc() {
-        return fc;
+    public void setCf(String cf) {
+        this.cf = cf;
     }
 
-    public void setFc(String fc) {
-        this.fc = fc;
+    public String getCitta() {
+        return citta;
     }
 
-    public String getCity() {
-        return city;
+    public void setCitta(String citta) {
+        this.citta = citta;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public Date getDataNascita() {
+        return dataNascita;
     }
 
-    public Date getbDay() {
-        return bDay;
-    }
-
-    public void setbDay(Date bDay) {
-        this.bDay = bDay;
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
     }
 
     // TO STRING
 
     @Override
     public String toString() {
-        return "Persona [id=" + id + ", name=" + name + ", surname=" + surname + ", fc=" + fc + ", city=" + city
-                + ", bDay=" + bDay + "]";
+        return "Persona [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", cf=" + cf + ", citta=" + citta
+                + ", dataNascita=" + dataNascita + "]";
     }
 
 }
