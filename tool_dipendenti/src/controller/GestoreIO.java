@@ -10,6 +10,8 @@ import model.Persona;
 
 public class GestoreIO implements IGestoreIO {
 
+    // aggiungo un metodo scanner() per evitare di dover ripetere ad ogni metodo di
+    // inserimento la dichiarazone di un nuovo scanner.
     private Scanner scanner() {
         Scanner scan = new Scanner(System.in);
         return scan;
