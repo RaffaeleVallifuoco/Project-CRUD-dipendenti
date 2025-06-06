@@ -124,13 +124,24 @@ public class GestoreIO implements IGestoreIO {
 
     @Override
     public void visualizzaPersne(Map<Integer, Persona> db) {
+        if (db.isEmpty()) {
+            System.err.println("\nNessun valore da mostarre\n");
+        }
+        db.forEach((id, persona) -> {
+            System.out.println("ID Chiave: " + id);
+            schedaPersona(persona);
+            System.out.println("\n--------------------------\n");
+        });
 
     }
 
     @Override
     public void ceckOperazione(Boolean risultatoDML) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ceckOperazione'");
+        if (risultatoDML == true) {
+            System.out.println("\nOperazione effettuata con successo\n");
+        } else {
+            System.err.println("\nERRORE ! Operazione non riuscita\n");
+        }
     }
 
 }
