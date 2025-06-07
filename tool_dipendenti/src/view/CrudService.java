@@ -16,6 +16,7 @@ public class CrudService implements ICrudService {
     public boolean inserisciPersona(Persona dip) {
 
         if (db.get(dip.getId()) == null) {
+            dip.setId(idAutoIncrement);
             db.put(idAutoIncrement, dip);
             idAutoIncrement++;
             return true;
@@ -27,8 +28,34 @@ public class CrudService implements ICrudService {
 
     @Override
     public boolean modificaPersona(Persona dip) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modificaPersona'");
+        \     if (dip != null) {
+                Persona dipCopia = gio.duplica(dip);
+                System.out.println("\nDATI ATTUALI:\n");
+                gio.schedaPersona(dip);
+                System.out.println("\nMODIFICA I DATI:\n");
+                gio.formModifica(dipCopia);
+                String choice = gio.leggiStringa("\nVUOI SALVARE LE MODIFICHE ? (s/n)\n");
+                switch (choice.toLowerCase()) {
+                    case "s" -> {
+                        gio.ceckOperazione(true);
+                        db.put(dipCopia.getId(), dipCopia);
+                        break;
+                    }
+                    case "n" -> {
+                        gio.ceckOperazione(false);
+                        break;
+                    }
+                    default:
+                        gio.ceckOperazione(false);
+                        break;
+                }
+
+            } else {
+                System.err.println("\nId non presente a db\n");
+                return false;
+            }
+        }
+
     }
 
     @Override

@@ -64,8 +64,8 @@ public class GestoreIO implements IGestoreIO {
     public void formRegistrazione(Persona dip) {
         String nome = leggiStringa("\nNome:\n");
         dip.setNome(nome);
-        leggiStringa("\nCognome:\n");
-        dip.setCognome(null);
+        String cognome = leggiStringa("\nCognome:\n");
+        dip.setCognome(cognome);
         Date dataNascita = leggiData("\nData di nascita:\n");
         dip.setDataNascita(dataNascita);
         String cf = leggiStringa("\nCodice Fiscale:\n");
@@ -75,6 +75,25 @@ public class GestoreIO implements IGestoreIO {
         Double stipendio = leggiDecimale("\nStipendio:\n");
         if (dip instanceof Dipendente) {
             ((Dipendente) dip).setStipendio(stipendio);
+        }
+
+    }
+
+    @Override
+    public void formModifica(Persona dipDuplicato) {
+        String nome = leggiStringa("\nNome:\n");
+        dipDuplicato.setNome(nome);
+        String cognome = leggiStringa("\nCognome:\n");
+        dipDuplicato.setCognome(cognome);
+        Date dataNascita = leggiData("\nData di nascita:\n");
+        dipDuplicato.setDataNascita(dataNascita);
+        String cf = leggiStringa("\nCodice Fiscale:\n");
+        dipDuplicato.setCf(cf);
+        String citta = leggiStringa("\nCitta di residenza:\n");
+        dipDuplicato.setCitta(citta);
+        Double stipendio = leggiDecimale("\nStipendio:\n");
+        if (dipDuplicato instanceof Dipendente) {
+            ((Dipendente) dipDuplicato).setStipendio(stipendio);
         }
 
     }
@@ -105,12 +124,6 @@ public class GestoreIO implements IGestoreIO {
     }
 
     @Override
-    public void formModifica(Persona dipMModificato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'formModifica'");
-    }
-
-    @Override
     public void schedaPersona(Persona dip) {
         Double stipendio = null;
         if (dip instanceof Dipendente) {
@@ -119,8 +132,9 @@ public class GestoreIO implements IGestoreIO {
 
         System.out.println("\n- Anagrafica dipendente -\n");
         System.out.println(String.format(
-                "- Id: %s\n- Nome: %s\n- Cognome: %s\n- Data di nascita: %s\n- Codice fiscale: %s\n- Residenza: %s\n- Stipendio: %f\n",
-                dip.getNome(), dip.getCognome(), dip.getDataNascita(), dip.getCf(), dip.getCitta(), stipendio));
+                "- Id: %d\n- Nome: %s\n- Cognome: %s\n- Data di nascita: %s\n- Codice fiscale: %s\n- Residenza: %s\n- Stipendio: %f\n",
+                dip.getId(), dip.getNome(), dip.getCognome(), dip.getDataNascita(), dip.getCf(), dip.getCitta(),
+                stipendio));
 
     }
 
