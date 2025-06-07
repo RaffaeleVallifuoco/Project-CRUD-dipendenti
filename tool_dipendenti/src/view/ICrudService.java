@@ -10,7 +10,7 @@ public interface ICrudService {
 
     public boolean modificaPersona(Persona dip);
 
-    public boolean rimuoviPersona(Persona dip);
+    public boolean rimuoviPersona(Integer id);
 
     public Persona leggi(int id);
 
