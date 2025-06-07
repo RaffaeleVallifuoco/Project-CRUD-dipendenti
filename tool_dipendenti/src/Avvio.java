@@ -4,12 +4,14 @@ import controller.GestoreIO;
 import model.Dipendente;
 import model.Persona;
 import service.Logo;
+import service.TerminalColor;
 import view.CrudService;
 
 public class Avvio {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("    n- GESTORE DIPENDENTI -\n\n");
+        System.out.println("\n\n");
+
         Logo.printMenuLogo();
 
         // global var.
@@ -26,7 +28,7 @@ public class Avvio {
 
             // try-catch per gestione eccezione generica
             try {
-                System.err.println("\n- MENU -\n");
+                System.err.println(TerminalColor.blue("\n- MENU -\n"));
 
                 risposta = gio.leggiIntero(
                         "1. Visualizza lista dipendenti\n2. Cerca dipendente\n3. inserisci un nuovo dipendente al database\n4. Modifica un dipendente esistente\n5. Rimuovi un dipendente dal database\n");
