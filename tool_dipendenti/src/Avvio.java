@@ -1,12 +1,16 @@
+import java.util.logging.LogRecord;
+
 import controller.GestoreIO;
 import model.Dipendente;
 import model.Persona;
+import service.Logo;
 import view.CrudService;
 
 public class Avvio {
     public static void main(String[] args) throws Exception {
 
-        System.out.println("    n- GETORE DIPENDENTI -\n\n");
+        System.out.println("    n- GESTORE DIPENDENTI -\n\n");
+        Logo.printMenuLogo();
 
         // global var.
         boolean loop = true;
