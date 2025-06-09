@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import model.Dipendente;
 import model.Persona;
+import service.TerminalColor;
 
 public class GestoreIO implements IGestoreIO {
 
@@ -62,12 +63,23 @@ public class GestoreIO implements IGestoreIO {
 
     @Override
     public void formRegistrazione(Persona dip) {
+        boolean check = true;
         String nome = leggiStringa("\nNome:\n");
         dip.setNome(nome);
         String cognome = leggiStringa("\nCognome:\n");
         dip.setCognome(cognome);
-        Date dataNascita = leggiData("\nData di nascita:\n");
-        dip.setDataNascita(dataNascita);
+        do {
+            try {
+                Date dataNascita = leggiData("\nData di nascita:\n");
+                dip.setDataNascita(dataNascita);
+                check = true;
+
+            } catch (IllegalArgumentException e) {
+                System.err.println(TerminalColor.red("Errore ! Formato data non valido. (YYYY-MM-DD)"));
+                check = false;
+            }
+        } while (check == false);
+
         String cf = leggiStringa("\nCodice Fiscale:\n");
         dip.setCf(cf);
         String citta = leggiStringa("\nCitta di residenza:\n");
@@ -141,7 +153,7 @@ public class GestoreIO implements IGestoreIO {
     @Override
     public void visualizzaPersne(Map<Integer, Persona> db) {
         if (db.isEmpty()) {
-            System.err.println("\nNessun valore da mostarre\n");
+            System.err.println(TerminalColor.red("\nNessun valore da mostarre\n"));
         }
         db.forEach((id, persona) -> {
             System.out.println("ID Chiave: " + id);
@@ -154,9 +166,9 @@ public class GestoreIO implements IGestoreIO {
     @Override
     public void ceckOperazione(Boolean risultatoDML) {
         if (risultatoDML == true) {
-            System.out.println("\nOperazione effettuata con successo\n");
+            System.out.println(TerminalColor.green("\nOperazione effettuata con successo\n"));
         } else {
-            System.err.println("\nERRORE ! Operazione non riuscita\n");
+            System.err.println(TerminalColor.red("\nERRORE ! Operazione non riuscita\n"));
         }
     }
 

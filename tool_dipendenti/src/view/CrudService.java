@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.Persona;
+import service.TerminalColor;
 import controller.GestoreIO;
 
 public class CrudService implements ICrudService {
@@ -60,7 +61,7 @@ public class CrudService implements ICrudService {
             db.remove(id);
             return true;
         } else {
-            System.err.println("\nId non presente a db\n");
+            System.err.println(TerminalColor.red("\nId non presente a db\n"));
             return false;
         }
     }
@@ -72,7 +73,7 @@ public class CrudService implements ICrudService {
         if (persona != null) {
             gio.schedaPersona(persona);
         } else {
-            System.err.println("\nId non presente a db\n");
+            System.err.println(TerminalColor.red("\nId non presente a db\n"));
         }
         return persona;
     }
