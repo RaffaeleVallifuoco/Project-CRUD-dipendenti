@@ -51,25 +51,29 @@ public class Avvio {
                     }
                     // insert
                     case 3 -> {
+                        Pause.pausa("\nattendi ...\n", 300);
                         crs.inserisciPersona(dip);
                         break;
                     }
                     // update
                     case 4 -> {
+                        Pause.pausa("\n", 200);
                         Integer id = gio.leggiIntero("\nInserisci l'id dell'utente da modificare :\n");
+                        Pause.pausa("\nattendi ...\n", 300);
                         Persona dipModifica = crs.leggi(id);
                         gio.ceckOperazione(crs.modificaPersona(dipModifica));
                         break;
                     }
                     // delete
                     case 5 -> {
+                        Pause.pausa("\n", 200);
                         Integer id = gio.leggiIntero("\nInserisci l'id dell'utente da rimuovere :\n");
                         gio.ceckOperazione(crs.rimuoviPersona(id));
 
                         break;
                     }
                     case 0 -> {
-                        System.out.println("\nUscita in corso ...\n");
+                        Pause.pausa("\nUscita in corso....\n", 2000);
                         loop = false;
                         break;
 
@@ -96,7 +100,7 @@ public class Avvio {
                             break;
                         }
                         default -> {
-                            System.out.println("\nUscita in corso ...\n");
+                            Pause.pausa("\nUscita in corso....\n", 2000);
                             loop = false;
                             break;
                         }

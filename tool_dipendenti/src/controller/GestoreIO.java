@@ -64,13 +64,13 @@ public class GestoreIO implements IGestoreIO {
     @Override
     public void formRegistrazione(Persona dip) {
         boolean check = true;
-        String nome = leggiStringa("\nNome:\n");
+        String nome = leggiStringa(TerminalColor.cyan("\nNome:\n"));
         dip.setNome(nome);
-        String cognome = leggiStringa("\nCognome:\n");
+        String cognome = leggiStringa(TerminalColor.cyan("\nCognome:\n"));
         dip.setCognome(cognome);
         do {
             try {
-                Date dataNascita = leggiData("\nData di nascita:\n");
+                Date dataNascita = leggiData(TerminalColor.cyan("\nData di nascita: (YYYY-MM-DD\n"));
                 dip.setDataNascita(dataNascita);
                 check = true;
 
@@ -80,11 +80,11 @@ public class GestoreIO implements IGestoreIO {
             }
         } while (check == false);
 
-        String cf = leggiStringa("\nCodice Fiscale:\n");
+        String cf = leggiStringa(TerminalColor.cyan("\nCodice Fiscale:\n"));
         dip.setCf(cf);
         String citta = leggiStringa("\nCitta di residenza:\n");
         dip.setCitta(citta);
-        Double stipendio = leggiDecimale("\nStipendio:\n");
+        Double stipendio = leggiDecimale(TerminalColor.cyan("\nStipendio:\n"));
         if (dip instanceof Dipendente) {
             ((Dipendente) dip).setStipendio(stipendio);
         }
@@ -93,17 +93,28 @@ public class GestoreIO implements IGestoreIO {
 
     @Override
     public void formModifica(Persona dipDuplicato) {
-        String nome = leggiStringa("\nNome:\n");
+        boolean check = true;
+        String nome = leggiStringa(TerminalColor.cyan("\nNome:\n"));
         dipDuplicato.setNome(nome);
-        String cognome = leggiStringa("\nCognome:\n");
+        String cognome = leggiStringa(TerminalColor.cyan("\nCognome:\n"));
         dipDuplicato.setCognome(cognome);
-        Date dataNascita = leggiData("\nData di nascita:\n");
-        dipDuplicato.setDataNascita(dataNascita);
-        String cf = leggiStringa("\nCodice Fiscale:\n");
+        do {
+            try {
+                Date dataNascita = leggiData(TerminalColor.cyan("\nData di nascita: (YYYY-MM-DD)\n"));
+                dipDuplicato.setDataNascita(dataNascita);
+                check = true;
+
+            } catch (IllegalArgumentException e) {
+                System.err.println(TerminalColor.red("Errore ! Formato data non valido. (YYYY-MM-DD)"));
+                check = false;
+            }
+        } while (check == false);
+
+        String cf = leggiStringa(TerminalColor.cyan("\nCodice Fiscale:\n"));
         dipDuplicato.setCf(cf);
-        String citta = leggiStringa("\nCitta di residenza:\n");
+        String citta = leggiStringa(TerminalColor.cyan("\nCitta di residenza:\n"));
         dipDuplicato.setCitta(citta);
-        Double stipendio = leggiDecimale("\nStipendio:\n");
+        Double stipendio = leggiDecimale(TerminalColor.cyan("\nStipendio:\n"));
         if (dipDuplicato instanceof Dipendente) {
             ((Dipendente) dipDuplicato).setStipendio(stipendio);
         }
