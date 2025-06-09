@@ -1,4 +1,3 @@
-import java.util.logging.LogRecord;
 
 import controller.GestoreIO;
 import model.Dipendente;
@@ -43,7 +42,7 @@ public class Avvio {
                     }
                     // findById
                     case 2 -> {
-                        Pause.pausa("\n", 200);
+                        Pause.pausa(" ", 200);
                         Integer id = gio.leggiIntero("\nInserisci l'id dell'utente da ricercare :\n");
                         Pause.pausa("\n recpero i dati...", 1000);
                         crs.leggi(id);
@@ -57,7 +56,7 @@ public class Avvio {
                     }
                     // update
                     case 4 -> {
-                        Pause.pausa("\n", 200);
+                        Pause.pausa(" ", 200);
                         Integer id = gio.leggiIntero("\nInserisci l'id dell'utente da modificare :\n");
                         Pause.pausa("\nattendi ...\n", 300);
                         Persona dipModifica = crs.leggi(id);
@@ -90,6 +89,7 @@ public class Avvio {
 
                 // ripeto ciclo o esco
                 if (loop == true) {
+                    Pause.pausa("\n", 1000);
                     risposta = gio
                             .leggiIntero(
                                     "\nCosa vuoi fare ora :\n\n1. Torna al menu principale\n2. Esci dal programma\n");

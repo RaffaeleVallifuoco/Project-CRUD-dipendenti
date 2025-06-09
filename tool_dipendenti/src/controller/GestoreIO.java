@@ -82,7 +82,7 @@ public class GestoreIO implements IGestoreIO {
 
         String cf = leggiStringa(TerminalColor.cyan("\nCodice Fiscale:\n"));
         dip.setCf(cf);
-        String citta = leggiStringa("\nCitta di residenza:\n");
+        String citta = leggiStringa(TerminalColor.cyan("\nCitta di residenza:\n"));
         dip.setCitta(citta);
         Double stipendio = leggiDecimale(TerminalColor.cyan("\nStipendio:\n"));
         if (dip instanceof Dipendente) {

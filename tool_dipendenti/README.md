@@ -1,18 +1,28 @@
-## Getting Started
+## NomeApp
+tool_dipendenti
+ver. 1.0
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Descrizione
+App Java per la gestione dei dipendenti
 
-## Folder Structure
+## Requisiti
+- Java 17
 
-The workspace contains two folders by default, where:
+## Installazione
+1. Clona il repository  
+2. Apri la cartela principale del progetto ed esegui a terminale il comandp 
+    javac -d ../bin $(find . -name "*.java")
+3. Crea il fle manifest.txt con il seguente contenuto per avviare l'app
+    Main-Class: Avvio
+4. Costruisci ed esegui il .jar
+    jar cfm tool-dipendenti.jar manifest.txt -C bin 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Uso
+- Avvia il jar 
+    jar cfm tool-dipendenti.jar manifest.txt -C bin .
+- segui i comandi a terminale per inserire, modificare e visualizzare i dipendenti
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Licenza
+FREE TO USE
