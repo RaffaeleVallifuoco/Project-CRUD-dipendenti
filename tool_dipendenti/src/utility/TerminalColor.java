@@ -1,4 +1,4 @@
-package service;
+package utility;
 
 public class TerminalColor {
 

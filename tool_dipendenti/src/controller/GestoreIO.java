@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 import model.Dipendente;
 import model.Persona;
-import service.TerminalColor;
+import utility.Pause;
+import utility.TerminalColor;
 
 public class GestoreIO implements IGestoreIO {
 
@@ -88,6 +89,7 @@ public class GestoreIO implements IGestoreIO {
         if (dip instanceof Dipendente) {
             ((Dipendente) dip).setStipendio(stipendio);
         }
+        Pause.pausa(TerminalColor.purple("\ninserimento dati in corso...\n", 1000));
 
     }
 
@@ -138,9 +140,7 @@ public class GestoreIO implements IGestoreIO {
         if (dipOriginale instanceof Dipendente) {
             stipendio = ((Dipendente) dipOriginale).getStipendio();
         }
-        if (dipCopia instanceof Dipendente) {
-            ((Dipendente) dipCopia).setStipendio(stipendio);
-        }
+        ((Dipendente) dipCopia).setStipendio(stipendio);
 
         return dipCopia;
 

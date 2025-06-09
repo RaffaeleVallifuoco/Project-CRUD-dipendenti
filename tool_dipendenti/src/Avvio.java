@@ -2,9 +2,9 @@
 import controller.GestoreIO;
 import model.Dipendente;
 import model.Persona;
-import service.Logo;
-import service.Pause;
-import service.TerminalColor;
+import utility.Logo;
+import utility.Pause;
+import utility.TerminalColor;
 import view.CrudService;
 
 public class Avvio {

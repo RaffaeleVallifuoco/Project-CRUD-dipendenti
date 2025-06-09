@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.Persona;
-import service.TerminalColor;
+import utility.TerminalColor;
 import controller.GestoreIO;
 
 public class CrudService implements ICrudService {
@@ -58,8 +58,20 @@ public class CrudService implements ICrudService {
     @Override
     public boolean rimuoviPersona(Integer id) {
         if (db.get(id) != null) {
-            db.remove(id);
-            return true;
+            String choice = gio
+                    .leggiStringa(TerminalColor.red("\nSEI SICURO DI VOLER ELIMINARE L'UTENTE SELEZIONATO ? (s/n)\n"));
+            switch (choice.toLowerCase()) {
+                case "s" -> {
+                    db.remove(id);
+                    return true;
+                }
+                case "n" -> {
+                    return false;
+                }
+                default -> {
+                    return false;
+                }
+            }
         } else {
             System.err.println(TerminalColor.red("\nId non presente a db\n"));
             return false;
