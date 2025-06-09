@@ -155,7 +155,7 @@ public class GestoreIO implements IGestoreIO {
 
         System.out.println("\n- Anagrafica dipendente -\n");
         System.out.println(String.format(
-                "- Id: %d\n- Nome: %s\n- Cognome: %s\n- Data di nascita: %s\n- Codice fiscale: %s\n- Residenza: %s\n- Stipendio: %f\n",
+                "- Id: %d\n- Nome: %s\n- Cognome: %s\n- Data di nascita: %s\n- Codice fiscale: %s\n- Residenza: %s\n- Stipendio: %.2f\n",
                 dip.getId(), dip.getNome(), dip.getCognome(), dip.getDataNascita(), dip.getCf(), dip.getCitta(),
                 stipendio));
 
