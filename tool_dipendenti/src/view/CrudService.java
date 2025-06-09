@@ -10,7 +10,7 @@ import controller.GestoreIO;
 public class CrudService implements ICrudService {
 
     GestoreIO gio = new GestoreIO();
-    int idAutoIncrement = 1;
+    int autoId = 1;
     Map<Integer, Persona> db = new HashMap<>();
 
     @Override
@@ -18,9 +18,9 @@ public class CrudService implements ICrudService {
 
         if (db.get(dip.getId()) == null) {
             gio.formRegistrazione(dip);
-            dip.setId(idAutoIncrement);
-            db.put(idAutoIncrement, dip);
-            idAutoIncrement++;
+            dip.setId(autoId);
+            db.put(autoId, dip);
+            autoId++;
             return true;
         } else {
             System.err.println("\nId gia presente a database\n");

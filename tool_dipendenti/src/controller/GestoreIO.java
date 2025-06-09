@@ -32,7 +32,7 @@ public class GestoreIO implements IGestoreIO {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println("Input non valido");
+            System.out.println(TerminalColor.red("\nInput non valido\n"));
             return leggiIntero(messaggio);
         }
     }
@@ -44,7 +44,7 @@ public class GestoreIO implements IGestoreIO {
         try {
             return Double.parseDouble(input);
         } catch (NumberFormatException e) {
-            System.out.println("Input non valido");
+            System.out.println(TerminalColor.red("\nInput non valido\n"));
             return leggiDecimale(messaggio);
         }
     }
@@ -56,7 +56,7 @@ public class GestoreIO implements IGestoreIO {
         try {
             return Date.valueOf(input);
         } catch (NumberFormatException e) {
-            System.out.println("Input non valido");
+            System.out.println(TerminalColor.red("\nInput non valido\n"));
             return leggiData(messaggio);
         }
     }

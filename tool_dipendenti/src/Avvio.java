@@ -37,13 +37,15 @@ public class Avvio {
                 switch (risposta) {
                     // findAll
                     case 1 -> {
-                        Pause.pausa("\n recpero i dati...", 1);
+                        Pause.pausa("\n recpero i dati...", 1000);
                         crs.leggi();
                         break;
                     }
                     // findById
                     case 2 -> {
+                        Pause.pausa("\n", 200);
                         Integer id = gio.leggiIntero("\nInserisci l'id dell'utente da ricercare :\n");
+                        Pause.pausa("\n recpero i dati...", 1000);
                         crs.leggi(id);
                         break;
                     }
